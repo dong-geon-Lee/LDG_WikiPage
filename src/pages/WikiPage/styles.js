@@ -25,5 +25,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.h3`
+  width: 100%;
+  text-align: left;
   font-size: 1.6rem;
 `;

@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <S.Container>
       <S.Div>
-        <S.Title>{headerTitle}</S.Title>
+        <S.LinkTag to="/">{headerTitle}</S.LinkTag>
         <S.Button>강의 추가하기</S.Button>
       </S.Div>
     </S.Container>

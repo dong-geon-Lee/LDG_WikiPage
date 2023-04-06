@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   border-bottom: 1px solid #000;
@@ -10,9 +11,15 @@ export const Div = styled.div`
   align-items: center;
 `;
 
-export const Title = styled.h1`
+export const LinkTag = styled(Link)`
   font-size: 3.2rem;
   margin: 2rem 2rem;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: #ff6000;
+  }
 `;
 
 export const Button = styled.button`
