@@ -2,13 +2,13 @@ export const courseDatas = [
   {
     id: 1,
     title: "Data Operations : Architecture & Security",
-    description: `프로젝트 실습을 통해 Data 오픈소스를 상황에 맞게 최적의 아키텍처를 설계할 수 있는 방법 및 기술을 습득`,
+    description: `프로젝트 실습을 통해 Data 오픈소스를 상황에 맞게 Spark 최적의 아키텍처를 설계할 수 있는 방법 및 기술을 습득합니다.`,
     category: "BigData",
   },
   {
     id: 2,
     title: "Data Processing with Spark",
-    description: `Spark를 활용한 빅데이터 분석 방법을 이해하고 실제 업무에 적용할 수 있는 방법 학습`,
+    description: `Spark를 활용한 빅데이터 분석 방법을 이해하고 실제 업무에 적용할 수 있는 방법 학습합니다.`,
     category: "BigData",
   },
   {
@@ -32,61 +32,61 @@ export const courseDatas = [
   {
     id: 6,
     title: "HTML & CSS",
-    description: `HTML의 기본문법과 HTML의 주요한 태그를 활용하여 웹사이트 이해하고 CSS 기본 스타일 및 특성을 학습합니다`,
+    description: `HTML의 기본문법과 HTML의 주요한 태그를 활용하여 웹사이트 이해하고 CSS 기본 스타일 및 특성을 학습합니다.`,
     category: "SW",
   },
   {
     id: 7,
     title: "React",
-    description: `React 기초 문법 및 심화 문법, UI 컴포넌트 설계 및 구축 방법 이해하고 React 이벤트 처리, React 작동원리를 학습힙니다`,
+    description: `React 기초 문법 및 심화 문법, UI 컴포넌트 설계 및 구축 방법 이해하고 React 이벤트 처리, React 작동원리를 학습합니다.`,
     category: "SW",
   },
   {
     id: 8,
     title: "JavaScript",
-    description: `JavaScript의 변수, 상수, 함수, 스크립트 로드 방법 이해하고 DOM(문서 객체 모델)으로 웹페이지를 동적으로 조작하는 방법을 학습합니다`,
+    description: `JavaScript의 변수, 상수, 함수, 스크립트 로드 방법 이해하고 DOM(문서 객체 모델)으로 웹페이지를 동적으로 조작하는 방법을 학습합니다.`,
     category: "SW",
   },
   {
     id: 9,
     title: "Java",
-    description: `객체 지향 프로그래밍의 특징과 해당 특징을 사용하기 위한 개념인 클래스에 대하여 학습합니다`,
+    description: `객체 지향 프로그래밍의 특징과 해당 특징을 사용하기 위한 개념인 클래스에 대하여 학습합니다.`,
     category: "SW",
   },
   {
     id: 10,
     title: "MySQL",
-    description: `관계형 데이터베이스 중 MySQL의 설치 방법 및 설정에 대한 학습`,
+    description: `관계형 데이터베이스 중 MySQL의 설치 방법 및 설정에 대한 학습합니다.`,
     category: "SW",
   },
   {
     id: 11,
     title: "Basics of ML with Python",
-    description: `Python Libraries & Data Preprocessing에 대한 내용을 학습합니다`,
+    description: `Python Libraries & Data Preprocessing에 대한 내용을 학습합니다.`,
     category: "AI",
   },
   {
     id: 12,
     title: "Machine Learning 이해와 활용",
-    description: `Basic concepts of ML & ML process에 대한 내용을 학습합니다`,
+    description: `Basic concepts of ML & ML process에 대한 내용을 학습합니다.`,
     category: "AI",
   },
   {
     id: 13,
     title: "Deep Learning 이해와 활용",
-    description: `Deep Learning & Keras 기본 이해 및 실습에 대한 내용을 학습합니다`,
+    description: `Deep Learning & Keras 기본 이해 및 실습에 대한 내용을 학습합니다.`,
     category: "AI",
   },
   {
     id: 14,
     title: "DL을 활용한 Image Processing",
-    description: `Convolutional Neural Network Basics의 기본 이해 및 실습에 대한 내용을 학습합니다`,
+    description: `Convolutional Neural Network Basics의 기본 이해 및 실습에 대한 내용을 학습합니다.`,
     category: "AI",
   },
   {
     id: 15,
     title: "DL을 활용한 NLP",
-    description: `Intro to Text Data & Natural Language Processing의 기본 이해 및 실습에 대한 내용을 학습합니다`,
+    description: `Intro to Text Data & Natural Language Processing의 기본 이해 및 실습에 대한 내용을 학습합니다. Image Processing`,
     category: "AI",
   },
   {
@@ -98,13 +98,13 @@ export const courseDatas = [
   {
     id: 17,
     title: "클라우드 네이티브 어플리케이션 개발",
-    description: `본 과정에서는 마이크로서비스 아키텍처를 분석, 설계, 구현하고 마이크로 서비스로 통합하는 시스템을 구성해 클라우드 네이티브한 개발 방법에 대해 학습합니다. `,
+    description: `본 과정에서는 마이크로서비스 아키텍처를 분석, 설계, 구현하고 마이크로 서비스로 통합하는 시스템을 구성해 클라우드 네이티브한 개발 방법에 대해 학습합니다.`,
     category: "Cloud",
   },
   {
     id: 18,
     title: "클라우드 기반 K8S 이해와 활용",
-    description: `본 과정에서는 클라우드 기반 Kubernetes  설치와 운영에 대해서 학습합니다. 또한 Kubernetes를 이용한 마이크로 서비스와 데브옵스를 구현하여 애플리케이션 무정지 재배포 및 운영 자동화 기술에 대한  지식들을 학습합니다.`,
+    description: `본 과정에서는 클라우드 기반 Kubernetes 설치와 운영에 대해서 학습합니다. 또한 Kubernetes를 이용한 마이크로 서비스와 데브옵스를 구현하여 애플리케이션 무정지 재배포 및 운영 자동화 기술에 대한  지식들을 학습합니다.`,
     category: "Cloud",
   },
   {

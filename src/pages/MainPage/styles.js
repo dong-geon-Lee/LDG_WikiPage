@@ -10,6 +10,7 @@ export const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   margin: 0 2rem;
+  user-select: none;
 `;
 
 export const Div = styled.div`
