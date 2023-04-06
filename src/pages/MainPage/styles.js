@@ -9,8 +9,7 @@ export const Container = styled.div`
 export const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 2fr 1fr;
-  margin: 0 20rem;
+  margin: 0 10rem;
 `;
 
 export const Div = styled.div`
@@ -29,11 +28,12 @@ export const Ul = styled.ul`
 export const LinkTag = styled(Link)`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2.6rem;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  width: 100%;
 
   :hover {
     color: gray;
@@ -45,8 +45,7 @@ export const Span = styled.span`
 `;
 
 export const Li = styled.li`
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   border-bottom: 1px solid #000;
   display: block;
-  width: 100%;
 `;
