@@ -1,20 +1,24 @@
-import React from "react";
-import * as S from "./styles";
+import React, { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { courseDatas } from "../../data/mockData";
 import Pagination from "../../components/Pagination/Pagination";
-import { useSearchParams } from "react-router-dom";
+import * as S from "./styles";
 
 const MainPage = () => {
-  const filteredCourseItmes = courseDatas.slice();
-  const perPageItemsCount = filteredCourseItmes;
-  const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams, setSearchParams);
+  const [searchParams] = useSearchParams();
+
+  const curPages = parseInt(searchParams.get("page"));
+  const perPageItemCount = 5;
+  const displayCourseLists = courseDatas.slice(
+    (curPages - 1) * perPageItemCount,
+    perPageItemCount * curPages
+  );
 
   return (
     <S.Container>
       <S.Section>
         <S.Div>
-          {courseDatas.map((item) => (
+          {displayCourseLists.map((item) => (
             <S.Ul key={item.id}>
               <S.LinkTag to={`/${item.id}`} state={item}>
                 <S.Span>[{item.id}]</S.Span>
