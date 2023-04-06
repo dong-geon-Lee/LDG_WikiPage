@@ -13,7 +13,8 @@ export const Section = styled.section`
 `;
 
 export const Div = styled.div`
-  padding: 10rem;
+  padding: 6rem 10rem;
+  padding-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: left;
