@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { courseDatas } from "../../data/mockData";
 import Pagination from "../../components/Pagination/Pagination";
@@ -18,6 +18,11 @@ const MainPage = () => {
     <S.Container>
       <S.Section>
         <S.Div>
+          <S.Headline>
+            <S.Label>번호</S.Label>
+            <S.Label>과목명</S.Label>
+            <S.Label>분류</S.Label>
+          </S.Headline>
           {displayCourseLists.map((item) => (
             <S.Ul key={item.id}>
               <S.LinkTag to={`/${item.id}`} state={item}>

@@ -13,13 +13,27 @@ export const Section = styled.section`
 `;
 
 export const Div = styled.div`
-  padding: 6rem 10rem;
+  padding: 10rem;
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   gap: 3.2rem;
+`;
+
+export const Headline = styled.div`
+  display: grid;
+  grid-template-columns: 0.4fr 3fr 1fr;
+  justify-items: left;
+  align-items: center;
+  gap: 2.6rem;
+  width: 100%;
+  border-bottom: 3px solid #1c3c62;
+
+  & label {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Ul = styled.ul`
