@@ -4,14 +4,18 @@ import { useLocation } from "react-router-dom";
 
 const WikiPage = () => {
   const location = useLocation();
-  const coursePath = location.pathname.split("/")[1];
   const { id, title, description } = location.state;
 
   return (
     <S.Container>
-      <h1>{id}</h1>
-      <h1>제목: {title}</h1>
-      <h1>본문: {description}</h1>
+      <S.Section>
+        <S.Div>
+          <S.Title>
+            [{id}] {title}
+          </S.Title>
+          <S.Description>{description}</S.Description>
+        </S.Div>
+      </S.Section>
     </S.Container>
   );
 };
