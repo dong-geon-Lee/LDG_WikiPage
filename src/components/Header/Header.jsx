@@ -4,7 +4,9 @@ import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  const headerTitle = location.pathname === "/" ? "메인페이지" : "위키페이지";
+  const params = location.pathname;
+  const headerTitle =
+    params === "/" ? "메인페이지" : `위키페이지 ${params[1]}번 코스`;
 
   return (
     <S.Container>
