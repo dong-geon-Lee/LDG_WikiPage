@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="wiki" element={<WikiPage />} />
+        <Route path="/:id" element={<WikiPage />} />
       </Routes>
     </Router>
   );

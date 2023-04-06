@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
@@ -18,15 +19,25 @@ export const Div = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  gap: 2.6rem;
+  gap: 3.2rem;
 `;
 
 export const Ul = styled.ul`
   list-style: none;
+`;
+
+export const LinkTag = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.4rem;
+  gap: 2.6rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+
+  :hover {
+    color: gray;
+  }
 `;
 
 export const Span = styled.span`
@@ -36,11 +47,6 @@ export const Span = styled.span`
 export const Li = styled.li`
   font-size: 3.6rem;
   border-bottom: 1px solid #000;
-  cursor: pointer;
   display: block;
   width: 100%;
-
-  &:hover {
-    color: gray;
-  }
 `;

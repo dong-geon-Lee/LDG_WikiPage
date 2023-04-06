@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 import { courseDatas } from "../../data/mockData";
-import { Link } from "react-router-dom";
+import Pagination from "../../components/Pagination/Pagination";
 
 const MainPage = () => {
   return (
@@ -10,13 +10,14 @@ const MainPage = () => {
         <S.Div>
           {courseDatas.map((item) => (
             <S.Ul key={item.id}>
-              <S.Span>[{item.id}]</S.Span>
-              <S.Li>{item.title}</S.Li>
+              <S.LinkTag to={`/${item.id}`} state={item}>
+                <S.Span>[{item.id}]</S.Span>
+                <S.Li>{item.title}</S.Li>
+              </S.LinkTag>
             </S.Ul>
           ))}
         </S.Div>
-
-        <Link>다음 페이지로 이동</Link>
+        <Pagination items={courseDatas} />
       </S.Section>
     </S.Container>
   );
