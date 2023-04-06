@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Section = styled.section`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  margin: 0 10rem;
+  margin: 0 2rem;
 `;
 
 export const Div = styled.div`
@@ -23,29 +23,53 @@ export const Div = styled.div`
 
 export const Ul = styled.ul`
   list-style: none;
+  display: grid;
+  width: 100%;
 `;
 
 export const LinkTag = styled(Link)`
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.4fr 3fr 1fr;
+  justify-items: left;
   align-items: center;
-  justify-content: flex-start;
   gap: 2.6rem;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   width: 100%;
+  border-bottom: 1px solid transparent;
 
-  :hover {
-    color: gray;
+  &:hover {
+    color: #14d6c6;
+    width: 100%;
+  }
+
+  &:hover span {
+    color: #000;
+  }
+
+  &:hover li {
+    border-bottom: 1px solid #000;
+  }
+
+  &:hover label {
+    color: #000;
   }
 `;
 
 export const Span = styled.span`
-  font-size: 3.6rem;
+  font-size: 2rem;
+  border-bottom: 1px solid transparent;
 `;
 
 export const Li = styled.li`
-  font-size: 2.6rem;
-  border-bottom: 1px solid #000;
   display: block;
+  font-size: 2.4rem;
+  border-bottom: 1px solid transparent;
+`;
+
+export const Label = styled.label`
+  display: block;
+  font-size: 2rem;
+  border-bottom: 1px solid transparent;
 `;
