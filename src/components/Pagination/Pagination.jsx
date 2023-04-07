@@ -24,7 +24,11 @@ const Pagination = ({ courseCount }) => {
       <S.PageContents>
         <S.PageBox>
           {Array.from({ length: pagesCount }, (_, i) => (
-            <S.Pages key={i} onClick={() => handleSelectedPage(i + 1)}>
+            <S.Pages
+              key={i}
+              onClick={() => handleSelectedPage(i + 1)}
+              active={i + 1 === parseInt(searchParams.get("page"))}
+            >
               {i + 1}
             </S.Pages>
           ))}

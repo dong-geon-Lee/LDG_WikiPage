@@ -12,7 +12,7 @@ export const PageBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.6rem;
+  gap: 2.4rem;
   font-size: 2rem;
 `;
 
@@ -22,12 +22,8 @@ export const Pages = styled.div`
   align-items: center;
   width: 4rem;
   height: 4rem;
-  background-color: #edf1d6;
   border-radius: 0.4rem;
-  cursor: pointer;
   border: 1px solid #000;
-
-  &:hover {
-    background-color: #9dc08b;
-  }
+  background-color: ${(props) => (props.active ? "#adb5bd" : "#edf1d6")};
+  cursor: ${(props) => (props.active ? "not-allowed" : "pointer")};
 `;
