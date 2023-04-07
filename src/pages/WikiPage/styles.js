@@ -36,25 +36,37 @@ export const ContentsBox = styled.div`
 
 export const Description = styled.p`
   font-weight: 600;
+  text-align: left;
+  width: 100%;
 `;
 
 export const LinkTag = styled(Link)`
-  text-decoration: none;
   color: inherit;
   font-size: 1.6rem;
   display: inline-block;
   width: 100%;
-`;
+  text-decoration: underline;
 
-export const Footer = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10rem 0;
-  gap: 2.4rem;
+  &:hover {
+    color: #3366cc;
+  }
 `;
 
 export const Text = styled.h2`
+  text-align: left;
+  width: 100%;
+`;
+
+export const Footer = styled.footer`
+  margin: 4rem 0;
+`;
+
+export const Box = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+`;
+
+export const Small = styled.small`
   text-align: left;
   width: 100%;
 `;
