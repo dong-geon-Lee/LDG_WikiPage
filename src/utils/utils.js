@@ -9,3 +9,14 @@ export const findModifyCourse = (courseLists, currentPageId) => {
     (courseItem) => courseItem.id === parseInt(currentPageId)
   );
 };
+
+export const findAllCategory = (courseLists) => {
+  return [...new Set(courseLists.map((x) => x.category))];
+};
+
+export const createNewData = (courseLists, title, description, category) => {
+  return [
+    ...courseLists,
+    { id: courseLists.length + 1, title, description, category },
+  ];
+};
