@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { courseDatas } from "../../data/mockData";
 import * as S from "./styles";
 import { modalState } from "../../recoils/modalState";
 import { useRecoilState } from "recoil";
+import { courseState } from "../../recoils/courseState";
 
-const Modals = ({ setCourseItems }) => {
+const Modals = () => {
   const [, setModals] = useRecoilState(modalState);
+  const [courseLists, setCourseLists] = useRecoilState(courseState);
 
   const [option, setOption] = useState("선택");
   const [courseInfo, setCourseInfo] = useState({
@@ -15,7 +16,7 @@ const Modals = ({ setCourseItems }) => {
   });
 
   const { title, description } = courseInfo;
-  const categoryOption = [...new Set(courseDatas.map((x) => x.category))];
+  const categoryOption = [...new Set(courseLists.map((x) => x.category))];
 
   const selectOnChange = (e) => {
     setOption(e.target.value);
@@ -32,14 +33,16 @@ const Modals = ({ setCourseItems }) => {
     }
 
     const newItems = [
-      ...courseDatas,
-      { id: courseDatas.length + 1, title, description, category: option },
+      ...courseLists,
+      { id: courseLists.length + 1, title, description, category: option },
     ];
 
-    setCourseItems(newItems);
+    setCourseLists(newItems);
     alert("제출하였습니다");
     setModals(false);
   };
+
+  console.log(courseLists);
 
   return (
     <S.Container>

@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import * as S from "./styles";
+import { courseState } from "../../recoils/courseState";
+import { useRecoilValue } from "recoil";
 
-const Pagination = ({ courseCount }) => {
+const Pagination = () => {
+  const courseLists = useRecoilValue(courseState);
   const [searchParams, setSearchParams] = useSearchParams();
   const perPageItemCount = 5;
-  const pagesCount = Math.ceil(courseCount / perPageItemCount);
+  const pagesCount = Math.ceil(courseLists.length / perPageItemCount);
 
   const handleSelectedPage = (page) => {
     searchParams.set("page", page || "1");

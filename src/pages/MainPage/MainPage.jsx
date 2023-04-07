@@ -1,14 +1,17 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { courseState } from "../../recoils/courseState";
 import Pagination from "../../components/Pagination/Pagination";
 import * as S from "./styles";
 
-const MainPage = ({ courseItems }) => {
+const MainPage = () => {
+  const courseLists = useRecoilValue(courseState);
   const [searchParams] = useSearchParams();
 
   const curPages = parseInt(searchParams.get("page"));
   const perPageItemCount = 5;
-  const displayCourseLists = courseItems.slice(
+  const displayCourseLists = courseLists.slice(
     (curPages - 1) * perPageItemCount,
     perPageItemCount * curPages
   );
@@ -32,7 +35,7 @@ const MainPage = ({ courseItems }) => {
             </S.Ul>
           ))}
         </S.Div>
-        <Pagination courseCount={courseItems.length} />
+        <Pagination />
       </S.Section>
     </S.Container>
   );

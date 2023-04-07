@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./styles";
+import { courseState } from "../../recoils/courseState";
+import { useRecoilState } from "recoil";
 
-const WikiContentPage = ({ courseItems, setCourseItems }) => {
+const WikiContentPage = () => {
+  const [courseLists, setCourseLists] = useRecoilState(courseState);
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editState, setEditState] = useState(false);
@@ -24,7 +27,7 @@ const WikiContentPage = ({ courseItems, setCourseItems }) => {
   };
 
   const handleContentEdit = (id) => {
-    const newEditItems = courseItems.map((courseItem) => {
+    const newEditItems = courseLists.map((courseItem) => {
       if (courseItem.id === id) {
         return {
           ...courseItem,
@@ -34,7 +37,7 @@ const WikiContentPage = ({ courseItems, setCourseItems }) => {
       }
       return courseItem;
     });
-    setCourseItems(newEditItems);
+    setCourseLists(newEditItems);
     setEditState(false);
     alert(`${id}번 강의 편집이 완료되었습니다!`);
     navigate("/");

@@ -4,10 +4,12 @@ import * as S from "./styles";
 import Modals from "../Modals/Modals";
 import Overlays from "../Overlays/Overlays";
 import { modalState } from "../../recoils/modalState";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { courseState } from "../../recoils/courseState";
 
-const Header = ({ courseItems, setCourseItems }) => {
+const Header = () => {
   const [modals, setModals] = useRecoilState(modalState);
+  const courseLists = useRecoilValue(courseState);
 
   const location = useLocation();
   const params = location.pathname;
@@ -17,7 +19,7 @@ const Header = ({ courseItems, setCourseItems }) => {
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    const courseInfo = courseItems.find(
+    const courseInfo = courseLists.find(
       (courseItem) => courseItem.id === parseInt(singlePageId)
     );
 
@@ -26,7 +28,7 @@ const Header = ({ courseItems, setCourseItems }) => {
 
   return (
     <S.Container>
-      {modals && <Modals setCourseItems={setCourseItems} />}
+      {modals && <Modals />}
       {modals && <Overlays />}
       <S.Div>
         <S.LinkTag to="/">{headerTitle}</S.LinkTag>

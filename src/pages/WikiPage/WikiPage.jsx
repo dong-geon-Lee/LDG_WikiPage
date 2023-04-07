@@ -1,12 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import * as S from "./styles";
+import { courseState } from "../../recoils/courseState";
+import { useRecoilValue } from "recoil";
 
-const WikiPage = ({ courseItems }) => {
+const WikiPage = () => {
+  const courseLists = useRecoilValue(courseState);
   const location = useLocation();
   const { id, title, description, category } = location.state;
 
-  const sameCategoryCourse = courseItems.filter(
+  const sameCategoryCourse = courseLists.filter(
     (x) => x.category === category && x.id !== id
   );
 
@@ -14,7 +17,7 @@ const WikiPage = ({ courseItems }) => {
     let keywordLists = [];
     for (const wikiTitle of title.split(" ")) {
       keywordLists.push(
-        ...courseItems.filter((x) => x.description.match(wikiTitle))
+        ...courseLists.filter((x) => x.description.match(wikiTitle))
       );
     }
     return [...new Set(keywordLists)];
@@ -28,9 +31,7 @@ const WikiPage = ({ courseItems }) => {
             [{id}] {title}
           </S.Title>
           <S.ContentsBox>
-            <S.Description>
-              {description} 아래는 선행 학습 코스입니다.
-            </S.Description>
+            <S.Description>{description}</S.Description>
             {sameCategoryCourse.map((item) => (
               <S.LinkTag key={item.id} to={`/${item.id}`} state={item}>
                 ({item.id}) {item.title}
