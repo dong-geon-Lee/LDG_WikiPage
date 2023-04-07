@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import * as S from "./styles";
-import { courseState } from "../../recoils/courseState";
 import { useRecoilValue } from "recoil";
+import { courseState } from "../../recoils/courseState";
+import * as S from "./styles";
 
 const Pagination = () => {
   const courseLists = useRecoilValue(courseState);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import * as S from "./styles";
-import { courseState } from "../../recoils/courseState";
 import { useRecoilState } from "recoil";
+import { courseState } from "../../recoils/courseState";
+import * as S from "./styles";
 
 const WikiContentPage = () => {
   const [courseLists, setCourseLists] = useRecoilState(courseState);
