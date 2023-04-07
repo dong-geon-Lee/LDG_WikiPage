@@ -11,6 +11,16 @@ const WikiPage = () => {
     (x) => x.category === category && x.id !== id
   );
 
+  function findWikiKeywords() {
+    let keywordLists = [];
+    for (const wikiTitle of title.split(" ")) {
+      keywordLists.push(
+        ...courseDatas.filter((x) => x.description.match(wikiTitle))
+      );
+    }
+    return [...new Set(keywordLists)];
+  }
+
   return (
     <S.Container>
       <S.Section>
@@ -30,12 +40,14 @@ const WikiPage = () => {
           </S.ContentsBox>
         </S.Div>
         <S.Footer>
-          <S.Text>위키페이지 제목</S.Text>
-          {/* {wikiKeywords.map((item, index) => (
-            <S.Description key={index}>
-              [{index + 1}] : {item}
-            </S.Description>
-          ))} */}
+          <S.Text>위키페이지 강의 목록 {findWikiKeywords().length}개</S.Text>
+          <S.Box>
+            {findWikiKeywords()?.map((item) => (
+              <S.Small key={item.id}>
+                ({item.id}) {item.title}
+              </S.Small>
+            ))}
+          </S.Box>
         </S.Footer>
       </S.Section>
     </S.Container>

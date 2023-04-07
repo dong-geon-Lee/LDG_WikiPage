@@ -17,7 +17,7 @@ const Pagination = ({ courseCount }) => {
       parseInt(searchParams.set("page", "1"));
       setSearchParams(searchParams);
     }
-  }, [searchParams]);
+  }, [searchParams, setSearchParams]);
 
   return (
     <S.Container>
