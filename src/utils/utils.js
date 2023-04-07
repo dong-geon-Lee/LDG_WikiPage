@@ -20,3 +20,23 @@ export const createNewData = (courseLists, title, description, category) => {
     { id: courseLists.length + 1, title, description, category },
   ];
 };
+
+export const editCourseData = (
+  courseLists,
+  id,
+  title,
+  editTitle,
+  description,
+  editDescription
+) => {
+  return courseLists.map((courseItem) => {
+    if (courseItem.id === id) {
+      return {
+        ...courseItem,
+        title: editTitle ? editTitle : title,
+        description: editDescription ? editDescription : description,
+      };
+    }
+    return courseItem;
+  });
+};
