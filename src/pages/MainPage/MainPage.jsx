@@ -2,7 +2,7 @@ import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import Pagination from "../../components/Pagination/Pagination";
+import { Pagination } from "../../components";
 import * as S from "./styles";
 
 const MainPage = () => {

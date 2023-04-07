@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MainPage, WikiPage, WikiContentPage } from "./pages";
-import Header from "./components/Header/Header";
+import { Header } from "./components";
 
 const App = () => {
   return (
