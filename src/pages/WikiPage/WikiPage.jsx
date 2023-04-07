@@ -1,13 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { courseDatas } from "../../data/mockData";
 import * as S from "./styles";
 
-const WikiPage = () => {
+const WikiPage = ({ courseItems }) => {
   const location = useLocation();
   const { id, title, description, category } = location.state;
 
-  const sameCategoryCourse = courseDatas.filter(
+  const sameCategoryCourse = courseItems.filter(
     (x) => x.category === category && x.id !== id
   );
 
@@ -15,7 +14,7 @@ const WikiPage = () => {
     let keywordLists = [];
     for (const wikiTitle of title.split(" ")) {
       keywordLists.push(
-        ...courseDatas.filter((x) => x.description.match(wikiTitle))
+        ...courseItems.filter((x) => x.description.match(wikiTitle))
       );
     }
     return [...new Set(keywordLists)];

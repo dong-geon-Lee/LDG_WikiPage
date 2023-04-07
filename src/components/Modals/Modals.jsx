@@ -3,7 +3,7 @@ import { useState } from "react";
 import { courseDatas } from "../../data/mockData";
 import * as S from "./styles";
 
-const Modals = ({ setModals }) => {
+const Modals = ({ setModals, setCourseItems }) => {
   const [option, setOption] = useState("선택");
   const [courseInfo, setCourseInfo] = useState({
     title: "",
@@ -22,6 +22,17 @@ const Modals = ({ setModals }) => {
   };
 
   const handleOnCourse = () => {
+    if (!title || !description || !option) {
+      alert("모든 양식을 작성해주세요!");
+      return;
+    }
+
+    const newItems = [
+      ...courseDatas,
+      { id: courseDatas.length + 1, title, description, category: option },
+    ];
+
+    setCourseItems(newItems);
     alert("제출하였습니다");
     setModals(false);
   };
@@ -40,8 +51,10 @@ const Modals = ({ setModals }) => {
           <S.Label>분류:</S.Label>
           <S.Select value={option} onChange={selectOnChange}>
             <S.Option value="선택">분류</S.Option>
-            {categoryOption.map((category) => (
-              <S.Option value={category}>{category}</S.Option>
+            {categoryOption.map((category, index) => (
+              <S.Option key={index} value={category}>
+                {category}
+              </S.Option>
             ))}
           </S.Select>
         </S.Div>

@@ -1,15 +1,14 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { courseDatas } from "../../data/mockData";
 import Pagination from "../../components/Pagination/Pagination";
 import * as S from "./styles";
 
-const MainPage = () => {
+const MainPage = ({ courseItems }) => {
   const [searchParams] = useSearchParams();
 
   const curPages = parseInt(searchParams.get("page"));
   const perPageItemCount = 5;
-  const displayCourseLists = courseDatas.slice(
+  const displayCourseLists = courseItems.slice(
     (curPages - 1) * perPageItemCount,
     perPageItemCount * curPages
   );
@@ -33,7 +32,7 @@ const MainPage = () => {
             </S.Ul>
           ))}
         </S.Div>
-        <Pagination courseCount={courseDatas.length} />
+        <Pagination courseCount={courseItems.length} />
       </S.Section>
     </S.Container>
   );

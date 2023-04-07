@@ -11,8 +11,8 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  width: 40rem;
-  height: 40rem;
+  width: 46rem;
+  height: 42rem;
   background-color: #fff;
   position: relative;
   padding: 4rem 4rem;

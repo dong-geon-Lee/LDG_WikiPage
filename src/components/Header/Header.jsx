@@ -4,7 +4,7 @@ import * as S from "./styles";
 import Modals from "../Modals/Modals";
 import Overlays from "../Overlays/Overlays";
 
-const Header = () => {
+const Header = ({ setCourseItems }) => {
   const [modals, setModals] = useState(false);
   const location = useLocation();
   const params = location.pathname;
@@ -13,7 +13,9 @@ const Header = () => {
 
   return (
     <S.Container>
-      {modals && <Modals setModals={setModals} />}
+      {modals && (
+        <Modals setModals={setModals} setCourseItems={setCourseItems} />
+      )}
       {modals && <Overlays setModals={setModals} />}
       <S.Div>
         <S.LinkTag to="/">{headerTitle}</S.LinkTag>
