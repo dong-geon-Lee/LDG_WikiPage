@@ -1,10 +1,10 @@
 export const FILL__ALL__FORM = "모든 양식을 작성해주세요!";
 export const SUBMITTED__FORM = "제출하였습니다";
 export const CLOSE__LOGO = process.env.PUBLIC_URL + "/close.svg";
-export const PER__PAGEITEM__COUNT = 5;
+export const PER__PAGE__ITEMQTY = 5;
+export const PAGE__ONE = 1;
 export const DEFAULT__PAGE = "1";
 export const PAGE = "page";
 export const NULL = "null";
 export const LEFT__ARROW = process.env.PUBLIC_URL + "/left-arrow.svg";
 export const RIGHT__ARROW = process.env.PUBLIC_URL + "/right-arrow.svg";
-export const PAGE__ONE = 1;

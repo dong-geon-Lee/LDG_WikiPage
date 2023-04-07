@@ -9,7 +9,7 @@ const Pagination = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get(C.PAGE));
   const courseLists = useRecoilValue(courseState);
-  const allPagesCount = Math.ceil(courseLists.length / C.PER__PAGEITEM__COUNT);
+  const allPagesCount = Math.ceil(courseLists.length / C.PER__PAGE__ITEMQTY);
 
   const handleSelectedPage = (page) => {
     searchParams.set(C.PAGE, page);

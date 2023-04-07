@@ -4,16 +4,16 @@ import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
 import { Pagination } from "../../components";
 import * as S from "./styles";
+import * as C from "../../constants/constants";
 
 const MainPage = () => {
   const courseLists = useRecoilValue(courseState);
   const [searchParams] = useSearchParams();
 
-  const curPages = parseInt(searchParams.get("page"));
-  const perPageItemCount = 5;
+  const currentPages = parseInt(searchParams.get(C.PAGE));
   const displayCourseLists = courseLists.slice(
-    (curPages - 1) * perPageItemCount,
-    perPageItemCount * curPages
+    (currentPages - 1) * C.PER__PAGE__ITEMQTY,
+    C.PER__PAGE__ITEMQTY * currentPages
   );
 
   return (

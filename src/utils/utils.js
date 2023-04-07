@@ -20,5 +20,3 @@ export const createNewData = (courseLists, title, description, category) => {
     { id: courseLists.length + 1, title, description, category },
   ];
 };
-
-export const calcPageCount = (courseLists, C) => {};
