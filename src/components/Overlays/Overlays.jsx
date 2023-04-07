@@ -1,7 +1,8 @@
 import React from "react";
+import * as S from "./styles";
 
 const Overlays = () => {
-  return <div>Overlays</div>;
+  return <S.Container></S.Container>;
 };
 
 export default Overlays;

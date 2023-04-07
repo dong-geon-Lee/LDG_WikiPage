@@ -16,8 +16,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #f3f3f3;
     line-height: 1.5;
-    overflow: hidden;
-    position: relative;
   }
 `;
 
