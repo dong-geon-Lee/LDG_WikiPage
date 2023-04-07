@@ -23,6 +23,14 @@ const Pagination = ({ courseCount }) => {
     <S.Container>
       <S.PageContents>
         <S.PageBox>
+          <S.Button
+            disabled={parseInt(searchParams.get("page")) === 1}
+            onClick={() =>
+              handleSelectedPage(parseInt(searchParams.get("page")) - 1)
+            }
+          >
+            <S.Image src={process.env.PUBLIC_URL + "/left-arrow.svg"} />
+          </S.Button>
           {Array.from({ length: pagesCount }, (_, i) => (
             <S.Pages
               key={i}
@@ -32,6 +40,14 @@ const Pagination = ({ courseCount }) => {
               {i + 1}
             </S.Pages>
           ))}
+          <S.Button
+            disabled={parseInt(searchParams.get("page")) === pagesCount}
+            onClick={() =>
+              handleSelectedPage(parseInt(searchParams.get("page")) + 1)
+            }
+          >
+            <S.Image src={process.env.PUBLIC_URL + "/right-arrow.svg"} />
+          </S.Button>
         </S.PageBox>
       </S.PageContents>
     </S.Container>
