@@ -2,8 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { courseDatas } from "../../data/mockData";
 import * as S from "./styles";
+import { modalState } from "../../recoils/modalState";
+import { useRecoilState } from "recoil";
 
-const Modals = ({ setModals, setCourseItems }) => {
+const Modals = ({ setCourseItems }) => {
+  const [, setModals] = useRecoilState(modalState);
+
   const [option, setOption] = useState("선택");
   const [courseInfo, setCourseInfo] = useState({
     title: "",

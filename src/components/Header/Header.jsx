@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./styles";
 import Modals from "../Modals/Modals";
 import Overlays from "../Overlays/Overlays";
+import { modalState } from "../../recoils/modalState";
+import { useRecoilState } from "recoil";
 
 const Header = ({ courseItems, setCourseItems }) => {
-  const [modals, setModals] = useState(false);
+  const [modals, setModals] = useRecoilState(modalState);
+
   const location = useLocation();
   const params = location.pathname;
   const singlePageId = params.split("/")[1];
@@ -23,10 +26,8 @@ const Header = ({ courseItems, setCourseItems }) => {
 
   return (
     <S.Container>
-      {modals && (
-        <Modals setModals={setModals} setCourseItems={setCourseItems} />
-      )}
-      {modals && <Overlays setModals={setModals} />}
+      {modals && <Modals setCourseItems={setCourseItems} />}
+      {modals && <Overlays />}
       <S.Div>
         <S.LinkTag to="/">{headerTitle}</S.LinkTag>
         {singlePageId ? (
