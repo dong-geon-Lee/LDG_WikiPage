@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainPage from "./pages/MainPage/MainPage";
-import WikiPage from "./pages/WikiPage/WikiPage";
+import { MainPage, WikiPage, WikiContentPage } from "./pages";
 import Header from "./components/Header/Header";
-import WikiContentPage from "./pages/WikiContentPage/WikiContentPage";
 
 const App = () => {
   return (
