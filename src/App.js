@@ -15,7 +15,15 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MainPage courseItems={courseItems} />} />
         <Route path="/:id" element={<WikiPage courseItems={courseItems} />} />
-        <Route path="/:id/modify" element={<WikiContentPage />} />
+        <Route
+          path="/:id/modify"
+          element={
+            <WikiContentPage
+              courseItems={courseItems}
+              setCourseItems={setCourseItems}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
