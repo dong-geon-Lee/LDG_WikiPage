@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import * as S from "./styles";
 import Modals from "../Modals/Modals";
 import Overlays from "../Overlays/Overlays";
 
 const Header = () => {
+  const [modals, setModals] = useState(false);
   const location = useLocation();
   const params = location.pathname;
   const headerTitle =
@@ -12,11 +13,11 @@ const Header = () => {
 
   return (
     <S.Container>
-      <Modals />
-      <Overlays />
+      {modals && <Modals setModals={setModals} />}
+      {modals && <Overlays setModals={setModals} />}
       <S.Div>
         <S.LinkTag to="/">{headerTitle}</S.LinkTag>
-        <S.Button>강의 추가하기</S.Button>
+        <S.Button onClick={() => setModals(true)}>강의 추가하기</S.Button>
       </S.Div>
     </S.Container>
   );

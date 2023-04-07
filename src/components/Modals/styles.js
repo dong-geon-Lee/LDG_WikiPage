@@ -6,18 +6,36 @@ export const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  overflow: hidden;
+  border-radius: 0.4rem;
 `;
 
-export const Wrapper = styled.div`
-  width: 36rem;
-  height: 36rem;
+export const Section = styled.section`
+  width: 40rem;
+  height: 40rem;
   background-color: #fff;
   position: relative;
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 `;
 
-export const Title = styled.h2`
-  text-align: center;
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Title = styled.h2``;
+
+export const Image = styled.img`
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
 `;
 
 export const Div = styled.div`
@@ -28,6 +46,7 @@ export const Label = styled.label`
   display: block;
   font-size: 1.4rem;
   font-weight: 600;
+  margin-bottom: 0.4rem;
 `;
 
 export const Select = styled.select`
@@ -40,6 +59,7 @@ export const Option = styled.option``;
 export const Input = styled.input`
   width: 100%;
   padding: 0.6rem;
+  font-family: inherit;
 `;
 
 export const TextArea = styled.textarea`
@@ -56,6 +76,21 @@ export const BtnBox = styled.div`
 
 export const Button = styled.button`
   flex: 1;
-  padding: 0.6rem;
+  padding: 1rem;
   cursor: pointer;
+  border: 1px solid #c0c0c0;
+  background-color: #d1d1d1;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  font-family: inherit;
+
+  & + button {
+    border: 1px solid #00bdba;
+    background-color: #09c6c3;
+  }
+
+  :hover {
+    color: #1c3c62;
+  }
 `;

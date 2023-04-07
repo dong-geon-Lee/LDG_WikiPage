@@ -1,24 +1,45 @@
 import React from "react";
-import * as S from "./styles";
-import { courseDatas } from "../../data/mockData";
 import { useState } from "react";
+import { courseDatas } from "../../data/mockData";
+import * as S from "./styles";
 
-const Modals = () => {
+const Modals = ({ setModals }) => {
   const [option, setOption] = useState("선택");
+  const [courseInfo, setCourseInfo] = useState({
+    title: "",
+    description: "",
+  });
+
+  const { title, description } = courseInfo;
   const categoryOption = [...new Set(courseDatas.map((x) => x.category))];
 
-  const onChange = (e) => {
+  const selectOnChange = (e) => {
     setOption(e.target.value);
+  };
+
+  const onChange = (e) => {
+    setCourseInfo({ ...courseInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleOnCourse = () => {
+    alert("제출하였습니다");
+    setModals(false);
   };
 
   return (
     <S.Container>
-      <S.Wrapper>
-        <S.Title>강의 정보를 입력해주세요</S.Title>
+      <S.Section>
+        <S.Header>
+          <S.Title>강의 정보를 입력해주세요</S.Title>
+          <S.Image
+            src={process.env.PUBLIC_URL + "/close.svg"}
+            onClick={() => setModals(false)}
+          />
+        </S.Header>
         <S.Div>
           <S.Label>분류:</S.Label>
-          <S.Select value={option} onChange={onChange}>
-            <S.Option value="선택">선택</S.Option>
+          <S.Select value={option} onChange={selectOnChange}>
+            <S.Option value="선택">분류</S.Option>
             {categoryOption.map((category) => (
               <S.Option value={category}>{category}</S.Option>
             ))}
@@ -26,17 +47,27 @@ const Modals = () => {
         </S.Div>
         <S.Div>
           <S.Label>과목명:</S.Label>
-          <S.Input></S.Input>
+          <S.Input
+            onChange={onChange}
+            value={title}
+            name="title"
+            placeholder="개설하려는 강의명을 작성해주세요"
+          />
         </S.Div>
         <S.Div>
           <S.Label>본문:</S.Label>
-          <S.TextArea></S.TextArea>
+          <S.TextArea
+            onChange={onChange}
+            value={description}
+            name="description"
+            placeholder="교육개요와 강의내용을 작성해주세요"
+          />
         </S.Div>
         <S.BtnBox>
-          <S.Button>취소</S.Button>
-          <S.Button>제출</S.Button>
+          <S.Button onClick={() => setModals(false)}>취소하기</S.Button>
+          <S.Button onClick={() => handleOnCourse()}>제출하기</S.Button>
         </S.BtnBox>
-      </S.Wrapper>
+      </S.Section>
     </S.Container>
   );
 };
