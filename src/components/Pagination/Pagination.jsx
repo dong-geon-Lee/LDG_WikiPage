@@ -3,21 +3,22 @@ import { useSearchParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
 import * as S from "./styles";
+import * as C from "../../constants/constants";
 
 const Pagination = () => {
-  const courseLists = useRecoilValue(courseState);
   const [searchParams, setSearchParams] = useSearchParams();
-  const perPageItemCount = 5;
-  const pagesCount = Math.ceil(courseLists.length / perPageItemCount);
+  const currentPage = parseInt(searchParams.get(C.PAGE));
+  const courseLists = useRecoilValue(courseState);
+  const allPagesCount = Math.ceil(courseLists.length / C.PER__PAGEITEM__COUNT);
 
   const handleSelectedPage = (page) => {
-    searchParams.set("page", page || "1");
+    searchParams.set(C.PAGE, page);
     setSearchParams(searchParams);
   };
 
   useEffect(() => {
-    if (searchParams.get("page") === null) {
-      parseInt(searchParams.set("page", "1"));
+    if (searchParams.get(C.PAGE) === C.NULL) {
+      parseInt(searchParams.set(C.PAGE, C.DEFAULT__PAGE));
       setSearchParams(searchParams);
     }
   }, [searchParams, setSearchParams]);
@@ -27,29 +28,25 @@ const Pagination = () => {
       <S.PageContents>
         <S.PageBox>
           <S.Button
-            disabled={parseInt(searchParams.get("page")) === 1}
-            onClick={() =>
-              handleSelectedPage(parseInt(searchParams.get("page")) - 1)
-            }
+            disabled={currentPage === C.PAGE__ONE}
+            onClick={() => handleSelectedPage(currentPage - 1)}
           >
-            <S.Image src={process.env.PUBLIC_URL + "/left-arrow.svg"} />
+            <S.Image src={C.LEFT__ARROW} />
           </S.Button>
-          {Array.from({ length: pagesCount }, (_, i) => (
+          {Array.from({ length: allPagesCount }, (_, i) => (
             <S.Pages
               key={i}
               onClick={() => handleSelectedPage(i + 1)}
-              active={i + 1 === parseInt(searchParams.get("page"))}
+              active={i + 1 === currentPage}
             >
               {i + 1}
             </S.Pages>
           ))}
           <S.Button
-            disabled={parseInt(searchParams.get("page")) === pagesCount}
-            onClick={() =>
-              handleSelectedPage(parseInt(searchParams.get("page")) + 1)
-            }
+            disabled={currentPage === allPagesCount}
+            onClick={() => handleSelectedPage(currentPage + 1)}
           >
-            <S.Image src={process.env.PUBLIC_URL + "/right-arrow.svg"} />
+            <S.Image src={C.RIGHT__ARROW} />
           </S.Button>
         </S.PageBox>
       </S.PageContents>
