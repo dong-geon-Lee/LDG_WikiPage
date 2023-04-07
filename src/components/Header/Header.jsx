@@ -17,7 +17,7 @@ const Header = ({ courseItems, setCourseItems }) => {
     const courseInfo = courseItems.find(
       (courseItem) => courseItem.id === parseInt(singlePageId)
     );
-    console.log(courseInfo);
+
     navigate(`/${singlePageId}/modify`, { state: courseInfo });
   };
 
