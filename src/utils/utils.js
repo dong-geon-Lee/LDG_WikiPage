@@ -40,3 +40,17 @@ export const editCourseData = (
     return courseItem;
   });
 };
+
+export const findOtherCategory = (courseLists, category, id) => {
+  return courseLists.filter((x) => x.category === category && x.id !== id);
+};
+
+export const searchWikiKeywords = (title, courseLists) => {
+  let keywordLists = [];
+  for (const wikiTitle of title.split(" ")) {
+    keywordLists.push(
+      ...courseLists.filter((x) => x.description.match(wikiTitle))
+    );
+  }
+  return [...new Set(keywordLists)];
+};
