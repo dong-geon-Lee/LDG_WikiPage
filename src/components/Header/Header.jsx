@@ -1,11 +1,10 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import * as S from "./styles";
-import Modals from "../Modals/Modals";
-import Overlays from "../Overlays/Overlays";
-import { modalState } from "../../recoils/modalState";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { modalState } from "../../recoils/modalState";
 import { courseState } from "../../recoils/courseState";
+import Modals from "../Modals/Modals";
+import * as S from "./styles";
 
 const Header = () => {
   const [modals, setModals] = useRecoilState(modalState);
@@ -29,7 +28,6 @@ const Header = () => {
   return (
     <S.Container>
       {modals && <Modals />}
-      {modals && <Overlays />}
       <S.Div>
         <S.LinkTag to="/">{headerTitle}</S.LinkTag>
         {singlePageId ? (

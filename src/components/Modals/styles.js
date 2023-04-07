@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div``;
+
+export const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
