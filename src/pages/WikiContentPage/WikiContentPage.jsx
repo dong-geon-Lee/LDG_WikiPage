@@ -5,6 +5,7 @@ import { courseState } from "../../recoils/courseState";
 import { updateCourseList } from "../../utils/utils";
 import * as S from "./styles";
 import * as C from "../../constants/constants";
+import useExistCourse from "../../hooks/useExistCourse";
 
 const WikiContentPage = () => {
   const [courseLists, setCourseLists] = useRecoilState(courseState);
@@ -40,6 +41,8 @@ const WikiContentPage = () => {
     navigate("/");
     alert(`${id}${C.COMPLETED__COURSE__EDIT}`);
   };
+
+  useExistCourse(courseLists, id);
 
   return (
     <S.Container>

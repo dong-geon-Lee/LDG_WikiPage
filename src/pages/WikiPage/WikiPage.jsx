@@ -1,17 +1,24 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import { getCourseCategory, searchRelatedCourses } from "../../utils/utils";
+import {
+  findCourseById,
+  getCourseCategory,
+  searchRelatedCourses,
+} from "../../utils/utils";
 import * as S from "./styles";
+import useExistCourse from "../../hooks/useExistCourse";
 
 const WikiPage = () => {
   const courseLists = useRecoilValue(courseState);
   const location = useLocation();
   const { id, title, description, category } = location.state;
+
   const sameCourseCategory = getCourseCategory(courseLists, category, id);
   const resultWikiKeyCourse = searchRelatedCourses(title, courseLists);
   const emptyCourse = resultWikiKeyCourse.length === 0;
+  useExistCourse(courseLists, id);
 
   return (
     <S.Container>
