@@ -32,9 +32,11 @@ const WikiPage = () => {
           </S.ContentsBox>
         </S.Div>
         <S.Footer>
-          <S.Text>
-            [ {title} ] 관련강의 : {findWikiKeywords.length}개
-          </S.Text>
+          <S.TextBox>
+            <S.Text>
+              [ {title} ] - 관련강의 : {findWikiKeywords.length}개
+            </S.Text>
+          </S.TextBox>
           <S.Box>
             {findWikiKeywords.map((item) => (
               <S.Small key={item.id}>

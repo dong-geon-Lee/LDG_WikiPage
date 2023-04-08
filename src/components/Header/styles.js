@@ -12,7 +12,7 @@ export const Div = styled.div`
 `;
 
 export const LinkTag = styled(Link)`
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   margin: 2rem 2rem;
   color: inherit;
   text-decoration: none;

@@ -65,6 +65,8 @@ export const LinkTag = styled(Link)`
   }
 `;
 
+export const TextBox = styled.div``;
+
 export const Text = styled.h2`
   text-align: left;
   width: 100%;
