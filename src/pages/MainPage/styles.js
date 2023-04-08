@@ -78,7 +78,7 @@ export const Span = styled.span`
   border-bottom: 1px solid transparent;
 `;
 
-export const Li = styled.li`
+export const Title = styled.p`
   display: block;
   font-size: 2.4rem;
   border-bottom: 1px solid transparent;

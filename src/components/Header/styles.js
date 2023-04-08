@@ -28,7 +28,7 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: inherit;
   font-size: 2rem;
-  color: #e03131;
+  color: #000;
 
   &:hover {
     color: #ff6000;

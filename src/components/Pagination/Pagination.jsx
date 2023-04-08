@@ -35,7 +35,7 @@ const Pagination = () => {
             disabled={currentPage === C.PAGE__ONE}
             onClick={() => handleSelectedPage(currentPage - 1)}
           >
-            <S.Image src={C.LEFT__ARROW} />
+            <S.Image src={C.LEFT__ARROW} alt={C.LEFT__ARROW} />
           </S.Button>
           {Array.from({ length: allPagesCount }, (_, i) => (
             <S.Pages
@@ -50,7 +50,7 @@ const Pagination = () => {
             disabled={currentPage === allPagesCount}
             onClick={() => handleSelectedPage(currentPage + 1)}
           >
-            <S.Image src={C.RIGHT__ARROW} />
+            <S.Image src={C.RIGHT__ARROW} alt={C.RIGHT__ARROW} />
           </S.Button>
         </S.PageBox>
       </S.PageContents>
