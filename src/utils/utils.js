@@ -21,20 +21,18 @@ export const addNewCourse = (courseLists, title, description, category) => {
   ];
 };
 
-export const updateCourseData = (
-  courseLists,
+export const updateCourseList = (
   id,
-  title,
+  courseLists,
   editTitle,
-  description,
   editDescription
 ) => {
   return courseLists.map((courseItem) => {
     if (courseItem.id === id) {
       return {
         ...courseItem,
-        title: editTitle ? editTitle : title,
-        description: editDescription ? editDescription : description,
+        title: editTitle ?? courseItem.title,
+        description: editDescription ?? courseItem.description,
       };
     }
     return courseItem;

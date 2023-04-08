@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import { updateCourseData } from "../../utils/utils";
+import { updateCourseList } from "../../utils/utils";
 import * as S from "./styles";
 import * as C from "../../constants/constants";
 
@@ -10,7 +10,7 @@ const WikiContentPage = () => {
   const [courseLists, setCourseLists] = useRecoilState(courseState);
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
-  const [editState, setEditState] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,34 +20,32 @@ const WikiContentPage = () => {
     setEditTitle(e.target.value);
   };
 
-  const onChangeDes = (e) => {
+  const onChangeDescription = (e) => {
     setEditDescription(e.target.value);
   };
 
-  const handleEditMode = () => {
-    setEditState((prevState) => !prevState);
+  const handleEditModeToggle = () => {
+    setIsEditMode((prevState) => !prevState);
   };
 
   const handleContentEdit = (id) => {
-    const newEditItems = updateCourseData(
-      courseLists,
+    const updatedCourseList = updateCourseList(
       id,
-      title,
+      courseLists,
       editTitle,
-      description,
       editDescription
     );
-    setCourseLists(newEditItems);
-    setEditState(false);
-    alert(`${id}${C.COMPLETED__COURSE__EDIT}`);
+    setCourseLists(updatedCourseList);
+    setIsEditMode(false);
     navigate("/");
+    alert(`${id}${C.COMPLETED__COURSE__EDIT}`);
   };
 
   return (
     <S.Container>
       <S.Section>
         <S.Div>
-          {editState ? (
+          {isEditMode ? (
             <S.EditTitleBox>
               <S.Label>과목명</S.Label>
               <S.Input onChange={onChangeTitle} defaultValue={title} />
@@ -55,19 +53,22 @@ const WikiContentPage = () => {
           ) : (
             <S.Title>{title}</S.Title>
           )}
-          {editState ? (
+          {isEditMode ? (
             <S.EditDesBox>
               <S.Label>본문</S.Label>
-              <S.TextArea onChange={onChangeDes} defaultValue={description} />
+              <S.TextArea
+                onChange={onChangeDescription}
+                defaultValue={description}
+              />
             </S.EditDesBox>
           ) : (
             <S.Description>{description}</S.Description>
           )}
         </S.Div>
         <S.BtnBox>
-          {editState ? (
+          {isEditMode ? (
             <>
-              <S.Button onClick={handleEditMode}>취소하기</S.Button>
+              <S.Button onClick={handleEditModeToggle}>취소하기</S.Button>
               <S.Button onClick={() => handleContentEdit(id)}>
                 제출하기
               </S.Button>
@@ -75,7 +76,7 @@ const WikiContentPage = () => {
           ) : (
             <>
               <S.Button onClick={() => navigate(-1)}>뒤로가기</S.Button>
-              <S.Button onClick={handleEditMode}>수정하기</S.Button>
+              <S.Button onClick={handleEditModeToggle}>수정하기</S.Button>
             </>
           )}
         </S.BtnBox>
