@@ -37,7 +37,7 @@ export const Headline = styled.div`
   }
 `;
 
-export const Ul = styled.ul`
+export const ContentsBox = styled.div`
   list-style: none;
   display: grid;
   width: 100%;

@@ -26,13 +26,13 @@ const MainPage = () => {
             <S.Label>분류</S.Label>
           </S.Headline>
           {displayCourseLists.map((item) => (
-            <S.Ul key={item.id}>
+            <S.ContentsBox key={item.id}>
               <S.LinkTag to={`/${item.id}`} state={item}>
                 <S.Span>[{item.id}]</S.Span>
                 <S.Title>{item.title}</S.Title>
                 <S.Label>{item.category}</S.Label>
               </S.LinkTag>
-            </S.Ul>
+            </S.ContentsBox>
           ))}
         </S.Div>
         <Pagination />
