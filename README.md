@@ -31,7 +31,7 @@ $ npm start
 <br/>
 
 ## :link: &nbsp; 프로젝트 링크 
-- https://ldg-wiki-page.vercel.app
+<a href="https://ldg-wiki-page.vercel.app" target="_blank">https://ldg-wiki-page.vercel.app</a>
 #### - Vercel을 이용하여 배포하였습니다.
 <br/>
 <br/>
