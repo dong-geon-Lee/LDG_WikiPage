@@ -7,9 +7,13 @@ import * as C from "../../constants/constants";
 
 const Pagination = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const queryPage = searchParams.get(C.PAGE);
   const currentPage = parseInt(searchParams.get(C.PAGE));
   const courseLists = useRecoilValue(courseState);
+
   const allPagesCount = Math.ceil(courseLists.length / C.PER__PAGE__ITEMQTY);
+  const emptyPage = queryPage === C.NULL;
+  const notExistPage = queryPage > allPagesCount;
 
   const handleSelectedPage = (page) => {
     searchParams.set(C.PAGE, page);
@@ -17,10 +21,7 @@ const Pagination = () => {
   };
 
   useEffect(() => {
-    if (
-      searchParams.get(C.PAGE) === C.NULL ||
-      searchParams.get(C.PAGE) > allPagesCount
-    ) {
+    if (emptyPage || notExistPage) {
       parseInt(searchParams.set(C.PAGE, C.DEFAULT__PAGE));
       setSearchParams(searchParams);
     }

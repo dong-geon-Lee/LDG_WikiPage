@@ -4,7 +4,6 @@ import { modalState } from "../../recoils/modalState";
 import { courseState } from "../../recoils/courseState";
 import {
   addNewCourse,
-  formValidation,
   getAllCategories,
   validateForm,
 } from "../../utils/utils";
@@ -38,7 +37,6 @@ const Modals = () => {
   };
 
   const closeModals = () => setModals(false);
-
   const onChange = (e) => {
     setCourseInfo({ ...courseInfo, [e.target.name]: e.target.value });
   };
