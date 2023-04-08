@@ -11,6 +11,7 @@ const WikiPage = () => {
   const { id, title, description, category } = location.state;
   const sameCourseCategory = getCourseCategory(courseLists, category, id);
   const resultWikiKeyCourse = searchRelatedCourses(title, courseLists);
+  const emptyCourse = resultWikiKeyCourse.length === 0;
 
   return (
     <S.Container>
@@ -38,9 +39,7 @@ const WikiPage = () => {
               [ {title},
               <S.Strong> 관련강의 {resultWikiKeyCourse.length}개</S.Strong> ]
             </S.Text>
-            {resultWikiKeyCourse.length === 0 && (
-              <S.Small>강의가 없습니다.</S.Small>
-            )}
+            {emptyCourse && <S.Small>강의가 없습니다.</S.Small>}
           </S.TextBox>
           <S.Box>
             {resultWikiKeyCourse.map((item) => (
