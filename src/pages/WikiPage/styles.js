@@ -56,7 +56,7 @@ export const LinkTag = styled(Link)`
   color: inherit;
   font-size: 1.4rem;
   display: inline-block;
-  width: 100%;
+  /* width: 100%; */
   text-decoration: underline;
   color: #862e9c;
   display: block;
@@ -67,7 +67,9 @@ export const LinkTag = styled(Link)`
   }
 `;
 
-export const TextBox = styled.div``;
+export const TextBox = styled.div`
+  margin-top: 2rem;
+`;
 
 export const Text = styled.h2`
   text-align: left;
@@ -81,6 +83,7 @@ export const Strong = styled.strong`
 
 export const Footer = styled.footer`
   margin: 4rem 0;
+  border-top: 3px solid #14d6c6;
 `;
 
 export const Box = styled.div`

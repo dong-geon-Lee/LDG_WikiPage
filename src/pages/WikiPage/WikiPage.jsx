@@ -31,6 +31,7 @@ const WikiPage = () => {
             ))}
           </S.ContentsBox>
         </S.Div>
+
         <S.Footer>
           <S.TextBox>
             <S.Text>
