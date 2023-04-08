@@ -102,9 +102,11 @@ $ npm start
 </details>
 <br/>
 
-
-
-
+## :computer: &nbsp; 프로젝트 성능 
+<div>
+<img width="600" alt=""
+ src="https://user-images.githubusercontent.com/69576865/230717803-6f0d2288-a886-4893-9572-ed33873aec5c.png">
+</br>
 </br>
 
 ## :bust_in_silhouette: &nbsp; 프로젝트 참여 
