@@ -57,6 +57,7 @@ export const Description = styled.p`
   font-weight: 600;
   border: 1px solid #000;
   padding: 1.6rem;
+  color: #797979;
 `;
 
 export const TextArea = styled.textarea`

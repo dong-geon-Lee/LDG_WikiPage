@@ -38,6 +38,7 @@ const WikiPage = () => {
               [ {title},
               <S.Strong> 관련강의 {findWikiKeywords.length}개</S.Strong> ]
             </S.Text>
+            {findWikiKeywords.length === 0 && <S.Text>강의가 없습니다.</S.Text>}
           </S.TextBox>
           <S.Box>
             {findWikiKeywords.map((item) => (

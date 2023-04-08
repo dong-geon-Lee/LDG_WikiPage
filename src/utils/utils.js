@@ -46,11 +46,10 @@ export const findOtherCategory = (courseLists, category, id) => {
 };
 
 export const searchWikiKeywords = (title, courseLists) => {
-  let keywordLists = [];
-  for (const wikiTitle of title.split(" ")) {
-    keywordLists.push(
-      ...courseLists.filter((x) => x.description.match(wikiTitle))
-    );
-  }
-  return [...new Set(keywordLists)];
+  const keywordLists = title.split(" ").map((wikiTitle) => {
+    return courseLists
+      .filter((course) => course.description.match(wikiTitle))
+      .reduce((acc, cur) => acc.concat(cur), []);
+  });
+  return [...new Set(keywordLists.flat())];
 };
