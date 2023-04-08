@@ -17,11 +17,14 @@ const Pagination = () => {
   };
 
   useEffect(() => {
-    if (searchParams.get(C.PAGE) === C.NULL) {
+    if (
+      searchParams.get(C.PAGE) === C.NULL ||
+      searchParams.get(C.PAGE) > allPagesCount
+    ) {
       parseInt(searchParams.set(C.PAGE, C.DEFAULT__PAGE));
       setSearchParams(searchParams);
     }
-  }, [searchParams, setSearchParams]);
+  }, [allPagesCount, searchParams, setSearchParams]);
 
   return (
     <S.Container>
