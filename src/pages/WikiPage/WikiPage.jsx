@@ -22,14 +22,19 @@ const WikiPage = () => {
           <S.ContentsBox>
             <S.Description>{description}</S.Description>
             {sameCategoryCourse.map((item) => (
-              <S.LinkTag key={item.id} to={`/${item.id}`} state={item}>
-                ({item.id}) {item.title}
-              </S.LinkTag>
+              <S.LinkBox>
+                <S.LinkId>({item.id})</S.LinkId>
+                <S.LinkTag key={item.id} to={`/${item.id}`} state={item}>
+                  {item.title}
+                </S.LinkTag>
+              </S.LinkBox>
             ))}
           </S.ContentsBox>
         </S.Div>
         <S.Footer>
-          <S.Text>위키페이지 강의 목록 {findWikiKeywords.length}개</S.Text>
+          <S.Text>
+            [ {title} ] 관련강의 : {findWikiKeywords.length}개
+          </S.Text>
           <S.Box>
             {findWikiKeywords.map((item) => (
               <S.Small key={item.id}>

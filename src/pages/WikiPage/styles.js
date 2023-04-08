@@ -24,6 +24,7 @@ export const Title = styled.h1`
   width: 100%;
   text-align: left;
   font-size: 2.8rem;
+  white-space: nowrap;
 `;
 
 export const ContentsBox = styled.div`
@@ -38,14 +39,26 @@ export const Description = styled.p`
   font-weight: 600;
   text-align: left;
   width: 100%;
+  margin-bottom: 1.6rem;
 `;
+
+export const LinkBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+`;
+
+export const LinkId = styled.small``;
 
 export const LinkTag = styled(Link)`
   color: inherit;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: inline-block;
   width: 100%;
   text-decoration: underline;
+  color: #862e9c;
+  display: block;
+  line-height: 2;
 
   &:hover {
     color: #3366cc;
@@ -55,6 +68,7 @@ export const LinkTag = styled(Link)`
 export const Text = styled.h2`
   text-align: left;
   width: 100%;
+  font-weight: 600;
 `;
 
 export const Footer = styled.footer`
@@ -69,4 +83,5 @@ export const Box = styled.div`
 export const Small = styled.small`
   text-align: left;
   width: 100%;
+  margin-top: 1rem;
 `;

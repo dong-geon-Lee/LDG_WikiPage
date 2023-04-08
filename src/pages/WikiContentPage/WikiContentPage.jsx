@@ -11,10 +11,10 @@ const WikiContentPage = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editState, setEditState] = useState(false);
-  const location = useLocation();
-  const { id, title, description } = location.state;
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { id, title, description } = location.state;
 
   const onChangeTitle = (e) => {
     setEditTitle(e.target.value);
@@ -75,7 +75,7 @@ const WikiContentPage = () => {
           ) : (
             <>
               <S.Button onClick={() => navigate(-1)}>뒤로가기</S.Button>
-              <S.Button onClick={handleEditMode}>편집하기</S.Button>
+              <S.Button onClick={handleEditMode}>수정하기</S.Button>
             </>
           )}
         </S.BtnBox>
