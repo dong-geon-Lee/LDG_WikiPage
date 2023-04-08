@@ -29,9 +29,9 @@ const Header = () => {
       <S.Div>
         <S.LinkTag to="/">{headerText}</S.LinkTag>
         {currentPageId ? (
-          <S.Button onClick={handleNavigate}>강의 수정</S.Button>
+          <S.Button onClick={handleNavigate}>강의수정</S.Button>
         ) : (
-          <S.Button onClick={openModals}>강의 추가</S.Button>
+          <S.Button onClick={openModals}>강의추가</S.Button>
         )}
       </S.Div>
     </S.Container>
