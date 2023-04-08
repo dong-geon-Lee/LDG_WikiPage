@@ -17,7 +17,7 @@ const WikiPage = () => {
       <S.Section>
         <S.Div>
           <S.Title>
-            [{id}] {title}
+            [ {id} ] {title}
           </S.Title>
           <S.ContentsBox>
             <S.Description>{description}</S.Description>

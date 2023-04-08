@@ -56,7 +56,6 @@ export const LinkTag = styled(Link)`
   color: inherit;
   font-size: 1.4rem;
   display: inline-block;
-  /* width: 100%; */
   text-decoration: underline;
   color: #862e9c;
   display: block;
@@ -96,4 +95,5 @@ export const Small = styled.small`
   width: 100%;
   margin-top: 1rem;
   color: #495057;
+  font-size: 1.2rem;
 `;
