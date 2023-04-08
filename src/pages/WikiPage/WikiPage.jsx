@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import { findOtherCategory, searchWikiKeywords } from "../../utils/utils";
+import { findOtherCategory, searchRelatedCourses } from "../../utils/utils";
 import * as S from "./styles";
 
 const WikiPage = () => {
@@ -10,7 +10,7 @@ const WikiPage = () => {
   const location = useLocation();
   const { id, title, description, category } = location.state;
   const sameCategoryCourse = findOtherCategory(courseLists, category, id);
-  const findWikiKeywords = searchWikiKeywords(title, courseLists);
+  const resultWikiKeyCourse = searchRelatedCourses(title, courseLists);
 
   return (
     <S.Container>
@@ -36,12 +36,14 @@ const WikiPage = () => {
           <S.TextBox>
             <S.Text>
               [ {title},
-              <S.Strong> 관련강의 {findWikiKeywords.length}개</S.Strong> ]
+              <S.Strong> 관련강의 {resultWikiKeyCourse.length}개</S.Strong> ]
             </S.Text>
-            {findWikiKeywords.length === 0 && <S.Text>강의가 없습니다.</S.Text>}
+            {resultWikiKeyCourse.length === 0 && (
+              <S.Text>강의가 없습니다.</S.Text>
+            )}
           </S.TextBox>
           <S.Box>
-            {findWikiKeywords.map((item) => (
+            {resultWikiKeyCourse.map((item) => (
               <S.Small key={item.id}>
                 ({item.id}) {item.title}
               </S.Small>

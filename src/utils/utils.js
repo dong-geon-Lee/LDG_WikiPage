@@ -45,11 +45,16 @@ export const findOtherCategory = (courseLists, category, id) => {
   return courseLists.filter((x) => x.category === category && x.id !== id);
 };
 
-export const searchWikiKeywords = (title, courseLists) => {
-  const keywordLists = title.split(" ").map((wikiTitle) => {
+export const searchRelatedCourses = (title, courseLists) => {
+  const relatedCourses = title.split(" ").map((wikiTitle) => {
     return courseLists
       .filter((course) => course.description.match(wikiTitle))
       .reduce((acc, cur) => acc.concat(cur), []);
   });
-  return [...new Set(keywordLists.flat())];
+
+  const uniqueMatchCourse = [...new Set(relatedCourses.flat())]
+    .filter((course) => course.title !== title)
+    .sort((a, b) => a.id - b.id);
+
+  return uniqueMatchCourse;
 };
