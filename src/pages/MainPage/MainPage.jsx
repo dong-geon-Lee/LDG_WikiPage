@@ -21,7 +21,7 @@ const MainPage = () => {
       <S.Section>
         <S.Div>
           <S.Headline>
-            <S.Label>번호</S.Label>
+            <S.Label>강의번호</S.Label>
             <S.Label>과목명</S.Label>
             <S.Label>분류</S.Label>
           </S.Headline>

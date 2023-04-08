@@ -25,8 +25,8 @@ export const Div = styled.div`
 
 export const Headline = styled.div`
   display: grid;
-  grid-template-columns: 0.4fr 3fr 1fr;
-  justify-items: left;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-items: center;
   align-items: center;
   gap: 2.6rem;
   width: 100%;
@@ -45,8 +45,8 @@ export const Ul = styled.ul`
 
 export const LinkTag = styled(Link)`
   display: grid;
-  grid-template-columns: 0.4fr 3fr 1fr;
-  justify-items: left;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-items: center;
   align-items: center;
   gap: 2.6rem;
   cursor: pointer;
