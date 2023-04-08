@@ -1,3 +1,5 @@
+import * as C from "../constants/constants";
+
 export const getDynamicText = (location) => {
   const params = location.pathname;
   const id = params.split("/")[1];
@@ -15,10 +17,13 @@ export const getAllCategories = (courseLists) => {
 };
 
 export const addNewCourse = (courseLists, title, description, category) => {
-  return [
-    ...courseLists,
-    { id: courseLists.length + 1, title, description, category },
-  ];
+  const newCourse = {
+    id: courseLists.length + 1,
+    title,
+    description,
+    category,
+  };
+  return [...courseLists, newCourse];
 };
 
 export const updateCourseList = (
@@ -55,4 +60,8 @@ export const searchRelatedCourses = (title, courseLists) => {
     .sort((a, b) => a.id - b.id);
 
   return uniqueMatchCourse;
+};
+
+export const validateForm = (title, description, category) => {
+  if (!title || !description || !category) throw new Error(C.FILL__ALL__FORM);
 };

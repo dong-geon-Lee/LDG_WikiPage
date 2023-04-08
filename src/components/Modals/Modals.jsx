@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../../recoils/modalState";
 import { courseState } from "../../recoils/courseState";
-import { addNewCourse, getAllCategories } from "../../utils/utils";
+import {
+  addNewCourse,
+  formValidation,
+  getAllCategories,
+  validateForm,
+} from "../../utils/utils";
 import Overlays from "../Overlays/Overlays";
 import * as S from "./styles";
 import * as C from "../../constants/constants";
@@ -20,15 +25,16 @@ const Modals = () => {
   const categoryOption = getAllCategories(courseLists);
 
   const handleSubmitCourse = () => {
-    if (!title || !description || !category) {
-      alert(C.FILL__ALL__FORM);
-      return;
-    }
+    try {
+      validateForm(title, description, category);
 
-    const newItems = addNewCourse(courseLists, title, description, category);
-    setCourseLists(newItems);
-    alert(C.SUBMITTED__FORM);
-    setModals(false);
+      const newCourse = addNewCourse(courseLists, title, description, category);
+      setCourseLists(newCourse);
+      alert(C.SUBMITTED__FORM);
+      setModals(false);
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const closeModals = () => setModals(false);
