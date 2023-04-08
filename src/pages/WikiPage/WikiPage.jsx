@@ -22,9 +22,9 @@ const WikiPage = () => {
           <S.ContentsBox>
             <S.Description>{description}</S.Description>
             {sameCategoryCourse.map((item) => (
-              <S.LinkBox>
+              <S.LinkBox key={item.id}>
                 <S.LinkId>({item.id})</S.LinkId>
-                <S.LinkTag key={item.id} to={`/${item.id}`} state={item}>
+                <S.LinkTag to={`/${item.id}`} state={item}>
                   {item.title}
                 </S.LinkTag>
               </S.LinkBox>
@@ -34,7 +34,8 @@ const WikiPage = () => {
         <S.Footer>
           <S.TextBox>
             <S.Text>
-              [ {title} ] - 관련강의 : {findWikiKeywords.length}개
+              [ {title},
+              <S.Strong> 관련강의 {findWikiKeywords.length}개</S.Strong> ]
             </S.Text>
           </S.TextBox>
           <S.Box>

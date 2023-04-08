@@ -25,6 +25,7 @@ export const Title = styled.h1`
   text-align: left;
   font-size: 2.8rem;
   white-space: nowrap;
+  color: #1c3c62;
 `;
 
 export const ContentsBox = styled.div`
@@ -40,6 +41,7 @@ export const Description = styled.p`
   text-align: left;
   width: 100%;
   margin-bottom: 1.6rem;
+  color: #797979;
 `;
 
 export const LinkBox = styled.div`
@@ -73,6 +75,10 @@ export const Text = styled.h2`
   font-weight: 600;
 `;
 
+export const Strong = styled.strong`
+  color: #4263eb;
+`;
+
 export const Footer = styled.footer`
   margin: 4rem 0;
 `;
@@ -86,4 +92,5 @@ export const Small = styled.small`
   text-align: left;
   width: 100%;
   margin-top: 1rem;
+  color: #495057;
 `;
