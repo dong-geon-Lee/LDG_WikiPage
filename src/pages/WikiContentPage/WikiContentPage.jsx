@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import { editCourseData } from "../../utils/utils";
+import { updateCourseData } from "../../utils/utils";
 import * as S from "./styles";
 import * as C from "../../constants/constants";
 
@@ -29,7 +29,7 @@ const WikiContentPage = () => {
   };
 
   const handleContentEdit = (id) => {
-    const newEditItems = editCourseData(
+    const newEditItems = updateCourseData(
       courseLists,
       id,
       title,

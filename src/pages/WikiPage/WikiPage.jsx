@@ -2,14 +2,14 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { courseState } from "../../recoils/courseState";
-import { findOtherCategory, searchRelatedCourses } from "../../utils/utils";
+import { getCourseCategory, searchRelatedCourses } from "../../utils/utils";
 import * as S from "./styles";
 
 const WikiPage = () => {
   const courseLists = useRecoilValue(courseState);
   const location = useLocation();
   const { id, title, description, category } = location.state;
-  const sameCategoryCourse = findOtherCategory(courseLists, category, id);
+  const sameCourseCategory = getCourseCategory(courseLists, category, id);
   const resultWikiKeyCourse = searchRelatedCourses(title, courseLists);
 
   return (
@@ -21,7 +21,7 @@ const WikiPage = () => {
           </S.Title>
           <S.ContentsBox>
             <S.Description>{description}</S.Description>
-            {sameCategoryCourse.map((item) => (
+            {sameCourseCategory.map((item) => (
               <S.LinkBox key={item.id}>
                 <S.LinkId>({item.id})</S.LinkId>
                 <S.LinkTag to={`/${item.id}`} state={item}>

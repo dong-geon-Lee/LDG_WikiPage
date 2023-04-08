@@ -1,27 +1,27 @@
-export const showDynamicText = (location) => {
+export const getDynamicText = (location) => {
   const params = location.pathname;
   const id = params.split("/")[1];
   return params === "/" ? "메인페이지" : `위키페이지 ${id}번 강의`;
 };
 
-export const findModifyCourse = (courseLists, currentPageId) => {
+export const findCourseById = (courseLists, currentPageId) => {
   return courseLists.find(
     (courseItem) => courseItem.id === parseInt(currentPageId)
   );
 };
 
-export const findAllCategory = (courseLists) => {
+export const getAllCategories = (courseLists) => {
   return [...new Set(courseLists.map((x) => x.category))];
 };
 
-export const createNewData = (courseLists, title, description, category) => {
+export const addNewCourse = (courseLists, title, description, category) => {
   return [
     ...courseLists,
     { id: courseLists.length + 1, title, description, category },
   ];
 };
 
-export const editCourseData = (
+export const updateCourseData = (
   courseLists,
   id,
   title,
@@ -41,7 +41,7 @@ export const editCourseData = (
   });
 };
 
-export const findOtherCategory = (courseLists, category, id) => {
+export const getCourseCategory = (courseLists, category, id) => {
   return courseLists.filter((x) => x.category === category && x.id !== id);
 };
 

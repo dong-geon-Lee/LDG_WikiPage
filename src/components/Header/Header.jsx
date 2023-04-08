@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { modalState } from "../../recoils/modalState";
 import { courseState } from "../../recoils/courseState";
-import { findModifyCourse, showDynamicText } from "../../utils/utils";
+import { findCourseById, getDynamicText } from "../../utils/utils";
 import Modals from "../Modals/Modals";
 import * as S from "./styles";
 
@@ -12,12 +12,12 @@ const Header = () => {
   const courseLists = useRecoilValue(courseState);
 
   const location = useLocation();
-  const headerText = showDynamicText(location);
+  const headerText = getDynamicText(location);
   const currentPageId = location.pathname.split("/")[1];
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    const courseInfo = findModifyCourse(courseLists, currentPageId);
+    const courseInfo = findCourseById(courseLists, currentPageId);
     navigate(`/${currentPageId}/modify`, { state: courseInfo });
   };
 
