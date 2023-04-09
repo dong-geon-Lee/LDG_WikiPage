@@ -105,9 +105,10 @@ $ npm start
 ## :computer: &nbsp; 프로젝트 성능 
 <div>
 <img width="600" alt=""
- src="https://user-images.githubusercontent.com/69576865/230721418-0df3347b-9c94-4d29-ba07-0612ecc9aa9d.png">
+ src="https://user-images.githubusercontent.com/69576865/230751651-35c5ea6d-6606-4a22-9663-e3aa6e828def.png">
 </br>
 </br>
+
 
 
 ## :bust_in_silhouette: &nbsp; 프로젝트 참여 
